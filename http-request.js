@@ -1,4 +1,4 @@
-// var http = require('http');
+var async = require("async");
 var request = require('request')
 var requestFactory = require('./request-factory');
 var fs = require('./file-settings');
@@ -25,11 +25,14 @@ function RequestManager(){
       }
 
       _requestManager.response.data = body;
+      console.log(body)
       var token = body.accessToken;
        if (token != undefined) {
           _requestManager.settings.token = token;
           console.log(token)
        }
+
+       // Write new token
        settingsManager.saveSettings(requestManager.settings);
     });
 
@@ -46,9 +49,21 @@ function main() {
     return;
   }
   
+  var commands = ['login','login']; 
+  var requests = []; 
   try {
-    requestManager.options = requestFactory.getOptions(requestManager.settings,process.argv[2]);
-    requestManager.executeRequest();
+
+    for (var i = 0; i < commands.length; i++) {
+      
+      var localFunction = function(){
+       requestManager.options = requestFactory.getOptions(requestManager.settings,commands[i]);
+       requestManager.executeRequest();
+      }
+      requests.push(localFunction());
+    
+    }
+
+    async.series(requests);
   } catch(e) {
     // statements
     console.log(e);

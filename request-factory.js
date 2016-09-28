@@ -27,11 +27,8 @@ var getOptions = function(settings,command) {
 	    }
 	    
 	    options.uri += '/wifiesta-api-auth/v1/auth/';
-	    console.log(options.uri);
 	    options.method = 'POST';
 	    options.body =  data;
-	    console.log(options.body)
-
 	    options.header['Content-Length'] = Buffer.byteLength(options.body.data);
 	    options.header = options.header;
 
