@@ -26,7 +26,6 @@ function RequestManager(){
 
       _requestManager.response.data = body;
       var token = body.accessToken;
-      // console.log(' token :', token)
        if (token != undefined) {
           _requestManager.settings.token = token;
           console.log(token)

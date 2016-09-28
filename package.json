@@ -1,0 +1,32 @@
+{
+  "name": "momentous-test",
+  "version": "1.0.0",
+  "description": "Request workbench",
+  "main": "http-request.js",
+  "dependencies": {
+    "async": "^2.0.1",
+    "http": "^0.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.75.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrojas/tests-js.git"
+  },
+  "keywords": [
+    "request",
+    "manager",
+    "test",
+    "syncronice"
+  ],
+  "author": "agrojas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agrojas/tests-js/issues"
+  },
+  "homepage": "https://github.com/agrojas/tests-js#readme"
+}
